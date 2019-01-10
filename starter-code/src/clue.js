@@ -179,15 +179,15 @@ function randomSelector(array) {
 
 function pickMistery() {
   var threeCards = [];
-  var card1 = randomSelector(charactersArray);
+  var character = randomSelector(charactersArray);
   // console.log(card1.first_name);
 
-  var card2 = randomSelector(weaponsArray);
-  var card3 = randomSelector(roomsArray);
+  var weapon = randomSelector(weaponsArray);
+  var room = randomSelector(roomsArray);
 
-  threeCards.push(card1.first_name + " " + card1.last_name);
-  threeCards.push(card2.name);
-  threeCards.push(card3.name);
+  threeCards.push(character);
+  threeCards.push(weapon);
+  threeCards.push(room);
   return threeCards;
 }
 
@@ -195,11 +195,14 @@ var misteryEnvelope = pickMistery();
 
 function revealMistery(misteryEnvelope) {
   return (
-    misteryEnvelope[0] +
+    misteryEnvelope[0].first_name +
+    " " +
+    misteryEnvelope[0].last_name +
     " killed Mr.Boddy using the " +
-    misteryEnvelope[1] +
+    misteryEnvelope[1].name +
     " in the " +
-    misteryEnvelope[2]
+    misteryEnvelope[2].name +
+    "!!!!"
   );
 }
 
